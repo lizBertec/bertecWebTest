@@ -1,0 +1,122 @@
+// Color Variable＊＊＊＊＊＊＊＊＊
+$title_bgc: #e11c42
+$title_color: #fff
+$blue: #0C295C
+
+// Mixin＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+//debug用－－－－－－－－－－－－－
+
+=db($c:#00ffff)
+    border: 1px dashed $c
+=db2
+    border: 1px dashed #FF00F2
+=db3
+    border: 1px dashed #1AFF00
+=db4
+    border: 1px dashed #B000FF
+
+//常用Mixins工具－－－－－－－－
+
+=transition($s:0.5s,$property:all)
+    transition: $property ease $s
+    // transition: transform $s cubic-bezier(0.23, 1, 0.32, 1) 0.5s,opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1) 0.2s
+=frame($w,$h:auto,$bdrs:0)
+    width: $w
+    height: $h
+    border-radius: $bdrs
+=border($c:#333,$bw:1px)
+    border-width: $bw
+    border-style: solid
+    border-color: $c
+=flexCnt($fw:nowrap,$fd:row)
+    display: flex
+    flex-direction: $fd
+    flex-wrap: $fw
+    justify-content: center
+    align-items: center
+=flexJc($fw:nowrap, $Jc:flex-start,$ac:flex-start,$ai:center)
+    display: flex
+    flex-direction: row
+    flex-wrap: $fw
+    justify-content: $Jc
+    align-content: $ac
+    align-items: $ai
+=howManyColumn($c,$m)
+    width: calc( 100% / $c - $m * ($c - 1) /$c)
+    margin-right: $m
+    margin-bottom: $m
+    &:nth-child(#{$c}n)
+        margin-right: 0px
+=maxText($lc:2)
+    // 限制文字顯示行數
+    overflow: hidden
+    display: -webkit-box
+    text-overflow: ellipsis
+    //行數
+    -webkit-line-clamp: $lc
+    -webkit-box-orient: vertical
+    white-space: normal
+=font($fz:inherit, $fw:inherit, $fc:inherit)
+    font-size: $fz
+    font-weight: $fw
+    color: $fc
+// 加在上層，把w改成0，Hover後才改成100%
+=underline($posB:-6px,$c:$mainColor,$h:2px,$w:100%)
+    width: $w
+    content: ""
+    position: absolute
+    bottom: $posB
+    height: $h
+    background-color: $c
+    right: 50%
+    transform: translate(50%,0)
+    transition: width ease 0.5s
+=toggleHide
+    // +transition
+    z-index: -1
+    visibility: hidden
+    opacity: 0
+=toggleShow($z:100)
+    z-index: $z
+    visibility: visible
+    opacity: 1
+
+=animation($name,$long:3s,$count:infinite)
+    animation-name: $name
+    animation-duration: $long
+    animation-iteration-count: $count
+
+=keyframes($name)
+    @keyframes #{$name}
+        @content
+
+// Media search Width－－－－－－－－－－－－－－－－－－－－－－－－
+
+=PC_gird
+    @media (max-width: 1600px)
+        @content
+=tablet_1024
+    @media (max-width: 1024px)
+        @content
+=tablet_960
+    @media (max-width: 960px)
+        @content
+=tablet_820
+    @media (max-width: 820px)
+        @content
+=tablet_768
+    @media (max-width: 768px)
+        @content
+=mob_L_425
+    @media (max-width: 425px)
+        @content
+=mob_M_375
+    @media (max-width: 375px)
+        @content
+=mob_S_320
+    @media (max-width: 320px)
+        @content
+// Media search Hight－－－－－－－－－－－－－－－－－－－－－－－－
+=tablet_H640
+    @media (max-height: 620px)
+        @content
