@@ -1,4 +1,8 @@
 @charset "UTF-8";
+body {
+  scroll-behavior: smooth !important;
+}
+
 .tipIntroPart {
   font-family: "Noto Sans TC", "微軟正黑體", sans-serif;
 }
@@ -36,6 +40,10 @@
   .tipIntroPart section {
     padding: 0 1em;
   }
+}
+.tipIntroPart section .contentBlock {
+  margin: 0 auto;
+  max-width: 90%;
 }
 .tipIntroPart section .title {
   text-align: center;
@@ -147,52 +155,128 @@
   height: 6px;
   background-color: #424242;
 }
-.tipIntroPart .pkgType .contentBlock .typeBox, .tipIntroPart .specialty .contentBlock .typeBox {
+.tipIntroPart .pkgType .contentBlock, .tipIntroPart .specialty .contentBlock {
+  max-width: 95%;
+}
+.tipIntroPart .pkgType .typeBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-.tipIntroPart .pkgType .contentBlock .typeBox .typeItem, .tipIntroPart .specialty .contentBlock .typeBox .typeItem {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: calc(33.3333333333% - 1.6666666667em);
+.tipIntroPart .pkgType .typeBox .typeItem {
+  width: calc(100% - 0em);
   margin-right: 2.5em;
   margin-bottom: 2.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-.tipIntroPart .pkgType .contentBlock .typeBox .typeItem:nth-child(3n), .tipIntroPart .specialty .contentBlock .typeBox .typeItem:nth-child(3n) {
+.tipIntroPart .pkgType .typeBox .typeItem:nth-child(1n) {
   margin-right: 0px;
 }
 @media (max-width: 425px) {
-  .tipIntroPart .pkgType .contentBlock .typeBox .typeItem, .tipIntroPart .specialty .contentBlock .typeBox .typeItem {
+  .tipIntroPart .pkgType .typeBox .typeItem {
     width: calc(100% - 0em);
     margin-right: 2.5em;
     margin-bottom: 2.5em;
   }
-  .tipIntroPart .pkgType .contentBlock .typeBox .typeItem:nth-child(1n), .tipIntroPart .specialty .contentBlock .typeBox .typeItem:nth-child(1n) {
+  .tipIntroPart .pkgType .typeBox .typeItem:nth-child(1n) {
     margin-right: 0px;
   }
 }
-.tipIntroPart .pkgType .contentBlock .typeBox .typeItem .imgFrame, .tipIntroPart .specialty .contentBlock .typeBox .typeItem .imgFrame {
+.tipIntroPart .pkgType .typeBox .typeItem .imgBox {
+  width: 20%;
+  margin-right: 2em;
+}
+.tipIntroPart .pkgType .typeBox .typeItem .imgBox .imgFrame {
   -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-.tipIntroPart .pkgType .contentBlock .typeBox .typeItem .subtitle, .tipIntroPart .specialty .contentBlock .typeBox .typeItem .subtitle {
+.tipIntroPart .pkgType .typeBox .typeItem .imgBox .subtitle {
   text-align: center;
   font-size: 18px;
   margin: 0.5em 0;
 }
-.tipIntroPart .pkgType .contentBlock .typeBox .typeItem .txt, .tipIntroPart .specialty .contentBlock .typeBox .typeItem .txt {
+.tipIntroPart .pkgType .typeBox .typeItem .imgBox .txt {
   font-size: 14px;
   margin-bottom: 2em;
 }
-.tipIntroPart .pkgType .more, .tipIntroPart .specialty .more {
-  text-align: right;
+.tipIntroPart .pkgType .typeBox .typeItem .typeTable {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
-.tipIntroPart .specialty .typeItem .txt :first-child {
+.tipIntroPart .pkgType .typeBox .typeItem .typeTable table {
+  width: 100%;
+  margin-right: 1em;
+}
+.tipIntroPart .pkgType .typeBox .typeItem .typeTable table:last-child {
+  margin-right: 0em;
+}
+.tipIntroPart .pkgType .typeBox .typeItem .typeTable table tr {
+  width: 100%;
+}
+.tipIntroPart .pkgType .typeBox .typeItem .typeTable table td {
+  word-break: break-word;
+}
+.tipIntroPart .pkgType .typeBox .typeItem .typeTable table thead tr:first-child {
+  background-color: #00a1e9;
+  color: #fff;
+}
+.tipIntroPart .pkgType .typeBox .typeItem .typeTable table thead tr:nth-child(2) {
+  background-color: #eee;
+  color: #000000;
+}
+.tipIntroPart .pkgType .typeBox .typeItem .typeTable table tbody tr:last-child {
+  text-align: left;
+}
+@media (max-width: 1024px) {
+  .tipIntroPart .pkgType .typeBox .typeItem .imgBox {
+    width: 30%;
+  }
+  .tipIntroPart .pkgType .typeBox .typeItem .typeTable {
+    width: 70%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .tipIntroPart .pkgType .typeBox .typeItem .typeTable table {
+    margin-right: 0em;
+    margin-bottom: 1em;
+  }
+}
+.tipIntroPart .specialty .typeBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.tipIntroPart .specialty .typeBox .typeItem {
+  width: calc(33.3333333333% - 0.6666666667em);
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+.tipIntroPart .specialty .typeBox .typeItem:nth-child(3n) {
+  margin-right: 0px;
+}
+.tipIntroPart .specialty .typeBox .typeItem .imgBox {
+  margin-bottom: 1.5em;
+}
+.tipIntroPart .specialty .typeBox .typeItem .imgBox .txt :first-child {
   text-align: center;
   margin-bottom: 1em;
+}
+.tipIntroPart .specialty .typeBox .typeItem .typeTable table {
+  margin-bottom: 1.5em;
+}
+.tipIntroPart .more ul {
+  text-align: left;
+  margin: 3em 0;
 }
 .tipIntroPart .pkgUnite .typeBox {
   display: -webkit-box;
@@ -270,4 +354,15 @@
 }
 .tipIntroPart .FQA .A ul {
   margin-bottom: 0;
+}
+.tipIntroPart .FQA .A ul li {
+  margin-top: 0.8em;
+}
+.tipIntroPart .FQA .A ul li p:nth-child(1) {
+  font-weight: bold;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+.tipIntroPart .FQA .A ul li p:nth-child(2)::before {
+  content: "　　";
 }
